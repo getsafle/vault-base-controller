@@ -102,4 +102,17 @@ describe('Initialize wallet ', () => {
         const balance = await getBalance(accounts[0], web3)
         console.log(" get balance ", balance, accounts)
     })
+    it("Get Estimated fees for rawTransaction", async () => {
+        const accounts = await baseKeyring.getAccounts()
+        const web3 = new Web3(TESTNET.URL);
+        const baseTx = {
+            from: accounts[0],
+            to:'0x641BB2596D8c0b32471260712566BF933a2f1a8e',
+            value:0,
+            data:'0x'
+        }
+        const fees = await baseKeyring.getFees(baseTx, web3)
+        console.log(" fees for the transaction ", fees)
+
+    })
 })
