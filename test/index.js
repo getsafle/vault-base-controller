@@ -1,7 +1,7 @@
 var assert = require('assert');
 const Web3 = require('web3')
 const CryptoJS = require('crypto-js');
-const { KeyringController: BaseKeyring} = require('../src/index')
+const { KeyringController: BaseKeyring, getBalance} = require('../src/index')
 
 const {
     HD_WALLET_12_MNEMONIC,
@@ -94,5 +94,12 @@ describe('Initialize wallet ', () => {
         console.log("address : ",address);
         assert(address.toLowerCase() === EXTERNAL_ACCOUNT_ADDRESS.toLowerCase(), "Wrong address")
         assert(baseKeyring.importedWallets.length === 1, "Should have 1 imported wallet")
+    })
+
+    it("Get address balance", async () => {
+        const accounts = await baseKeyring.getAccounts()
+        const web3 = new Web3(TESTNET.URL);
+        const balance = await getBalance(accounts[0], web3)
+        console.log(" get balance ", balance, accounts)
     })
 })
