@@ -88,4 +88,11 @@ describe('Initialize wallet ', () => {
         const acc = await baseKeyring.getAccounts()
         console.log("acc ", acc)
     })
+
+    it("Should import correct account ", async () => {
+        const address = await baseKeyring.importWallet(EXTERNAL_ACCOUNT_PRIVATE_KEY)
+        console.log("address : ",address);
+        assert(address.toLowerCase() === EXTERNAL_ACCOUNT_ADDRESS.toLowerCase(), "Wrong address")
+        assert(baseKeyring.importedWallets.length === 1, "Should have 1 imported wallet")
+    })
 })

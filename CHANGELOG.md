@@ -9,3 +9,4 @@
 - Added method to sign a transaction
 - Added method to sign a message
 - Added method to sign Typed Data (EIP-712)
+- Added importWallet() to import account using privateKey.

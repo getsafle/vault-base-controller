@@ -225,13 +225,41 @@ class KeyringController extends EventEmitter {
         } catch (e) {
             return Promise.reject(e)
         }
-    }  
+    }
+    /**
+     * 
+     * @param {string} _privateKey - Private key of the account to be imported
+     * @returns {string} - Address of the imported account
+     */
+    importWallet(_privateKey) {
+        try {
+            if (_privateKey.startsWith('0x')) {
+                _privateKey = _privateKey.slice(2)
+            }
+            const privateKey = Buffer.from(_privateKey, 'hex')
+            if (!ethUtil.isValidPrivate(privateKey))
+                throw "Enter a valid private key"
+
+            const address = ethUtil.bufferToHex(ethUtil.privateToAddress(privateKey))
+            this.importedWallets.push(address);
+            return address
+        } catch (e) {
+            return Promise.reject(e)
+        }
+    }   
 
     //
     // SIGNING METHODS
     //
 
-
+    async sign(rawTx, privateKey, web3) {
+        let signedTx;
+        if (typeof rawTx === 'string')
+            signedTx = await web3.eth.accounts.sign(rawTx, privateKey);
+        else
+            signedTx = await web3.eth.accounts.signTransaction({ ...rawTx, gas: await web3.eth.estimateGas(rawTx) }, privateKey)
+        return signedTx
+    }
     /**
      * Sign Message
      *
@@ -463,7 +491,7 @@ class KeyringController extends EventEmitter {
             throw err
         }
     }
-   
+
 }
 
-module.exports = { KeyringController}
+module.exports = { KeyringController }
