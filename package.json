@@ -43,6 +43,7 @@
     "nyc": "^15.0.0"
   },
   "dependencies": {
+    "@ethereumjs/tx": "^5.1.0",
     "axios": "^1.6.2",
     "bip39": "^3.0.4",
     "browser-passworder": "^2.0.3",

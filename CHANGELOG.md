@@ -13,3 +13,4 @@
 - Added sign() to sign a message or transaction and get signature along with v,r,s.
 - Added getBalance() to fetch the balance in native currency.
 - Added getFee() method for gas estimation for the Type-2 transactions.
+- Added support for EIP 1559 Type-2 transactions.
