@@ -94,5 +94,5 @@ const signedData = await baseController.signTypedMessage(msgParams);
 ```
 const balance = await getBalance(address, web3);
 ```
-[discussions-badge]: https://github.com/getsafle/vault-base-controller
+[discussions-badge]: https://img.shields.io/badge/Code_Quality-passing-rgba
 [discussions-link]: https://github.com/getsafle/vault-base-controller/actions
