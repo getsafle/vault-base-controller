@@ -2,6 +2,8 @@
 const { EventEmitter } = require('events')
 const log = require('loglevel')
 const ethUtil = require('ethereumjs-util')
+const { FeeMarketEIP1559Transaction } = require('@ethereumjs/tx');
+const { bufferToHex } = require('ethereumjs-util')
 
 const bip39 = require('bip39')
 const ObservableStore = require('obs-store')
@@ -252,6 +254,28 @@ class KeyringController extends EventEmitter {
     //
     // SIGNING METHODS
     //
+
+    /**
+    * Sign Base Transaction 
+    *
+    * Signs an Base transaction object.
+    *
+    * @param {Object} rawTx - The transaction to sign.
+    * @returns {string} The signed transaction raw string.
+    */
+
+    async signTransaction(rawTx, privateKey) {
+
+        const pkey = Buffer.from(privateKey, 'hex');
+
+        const tx = FeeMarketEIP1559Transaction.fromTxData(rawTx);
+
+        const signedTransaction = tx.sign(pkey);
+
+        const signedTx = bufferToHex(signedTransaction.serialize());
+
+        return signedTx
+    }
 
     /**
     * Sign Transaction or Message to get v,r,s
