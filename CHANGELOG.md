@@ -14,3 +14,10 @@
 - Added getBalance() to fetch the balance in native currency.
 - Added getFee() method for gas estimation for the Type-2 transactions.
 - Added support for EIP 1559 Type-2 transactions.
+
+### 1.0.0 (2023-12-18)
+
+#### Bugfix changed path in package.json
+
+- Changed 'main' path in package.json.
+- Updated version.

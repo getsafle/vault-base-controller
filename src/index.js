@@ -536,7 +536,7 @@ class KeyringController extends EventEmitter {
         }
     }
     /**
-     * get Fees method to get the fees for reqiured chainId for avalanche
+     * get Fees method to get the fees for reqiured chainId for Base
      *
      * returns the object having gasLimit and fees for the block
      *
@@ -544,14 +544,6 @@ class KeyringController extends EventEmitter {
      * @param {Object} web3 - web3 object.
      * @returns {Object} - gasLimit for the transaction and {maxFeePerGas,maxPriorityFeePerGas} for the transaction
      */
-
-    /**
-* get Fees method to get the fees for Base Chain
-*
-* @param {Object} rawTx - Rawtransaction - {from,to,value,data, chainId}  
-* @param {Object} web3 - web3 object.
-* @returns {Object} - gasLimit for the transaction and fees for the transaction
-*/
     async getFees(rawTx, web3) {
         const { from, to, value, data } = rawTx
         const gasLimit = await web3.eth.estimateGas({ to, from, value, data });
