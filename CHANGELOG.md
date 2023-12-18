@@ -20,3 +20,4 @@
 #### Bugfix changed path in package.json
 
 - Changed 'main' path in package.json.
+- Updated version.

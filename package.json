@@ -1,6 +1,6 @@
 {
   "name": "@getsafle/vault-base-controller",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Base blockchain controller for Safle Vault",
   "main": "src/index.js",
   "scripts": {
