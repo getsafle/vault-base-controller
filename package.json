@@ -1,6 +1,6 @@
 {
   "name": "@getsafle/vault-base-controller",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Base blockchain controller for Safle Vault",
   "main": "src/index.js",
   "scripts": {
@@ -43,7 +43,7 @@
     "nyc": "^15.0.0"
   },
   "dependencies": {
-    "@ethereumjs/tx": "^5.1.0",
+    "@ethereumjs/tx": "^3.4.0",
     "axios": "^1.6.2",
     "bip39": "^3.0.4",
     "browser-passworder": "^2.0.3",
