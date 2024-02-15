@@ -15,9 +15,14 @@
 - Added getFee() method for gas estimation for the Type-2 transactions.
 - Added support for EIP 1559 Type-2 transactions.
 
-### 1.0.0 (2023-12-18)
+### 1.0.1 (2023-12-18)
 
 #### Bugfix changed path in package.json
 
 - Changed 'main' path in package.json.
 - Updated version.
+
+### 1.0.2 (2024-02-14)
+
+- Downgraded ethereumjs module to 3.4.0 version.
+- Updated test rpc url
