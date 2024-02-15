@@ -35,7 +35,7 @@ module.exports = {
         TESTNET: {
             NETWORK: "TESTNET",
             CHAIN_ID: 84531,
-            URL: 'https://goerli.base.org'
+            URL: 'https://base-goerli.blockpi.network/v1/rpc/public'
         }
     }
 }

@@ -25,3 +25,4 @@
 ### 1.0.2 (2024-02-14)
 
 - Downgraded ethereumjs module to 3.4.0 version.
+- Updated test rpc url
